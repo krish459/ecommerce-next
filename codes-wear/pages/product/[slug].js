@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Slug = () => {
+  const checkServicibilty = async () => {
+    let pins = await fetch("http://localhost:3000/api/pincode");
+    let pinJson = await pins.json();
+    if (pinJson.includes(parseInt(pin))) {
+      setService(true);
+    } else {
+      setService(false);
+    }
+  };
+  const [pin, setPin] = useState();
+  const [service, setService] = useState();
+
+  const onchangePin = (e) => {
+    setPin(e.target.value);
+  };
   return (
     <div>
       <section className="text-gray-600 body-font overflow-hidden">
@@ -161,6 +176,9 @@ const Slug = () => {
                   $58.00
                 </span>
                 <button className="flex ml-4 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
+                  Buy Now
+                </button>
+                <button className="flex ml-4 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Add to Cart
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
@@ -176,6 +194,30 @@ const Slug = () => {
                   </svg>
                 </button>
               </div>
+              <div className="pin mt-6 flex space-x-2">
+                <input
+                  type="text"
+                  className="px-2 border-2 border-gray-900 rounded-md"
+                  placeholder="Enter Pincode"
+                  onChange={onchangePin}
+                />
+                <button
+                  className="flex ml-4 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded"
+                  onClick={checkServicibilty}
+                >
+                  Check
+                </button>
+              </div>
+              {!service && service != null && (
+                <div className="text-red-700 text-sm mt-3">
+                  Sorry! We Do not deliver to this pincode yet.
+                </div>
+              )}
+              {service && service != null && (
+                <div className="text-green-700 text-sm mt-3">
+                  We Do deliver to this pincode.
+                </div>
+              )}
             </div>
           </div>
         </div>
