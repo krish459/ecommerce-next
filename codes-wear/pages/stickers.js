@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const tshirt = () => {
+const stickers = () => {
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -13,7 +13,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -34,7 +34,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -55,7 +55,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -76,7 +76,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -97,7 +97,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -118,7 +118,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -139,7 +139,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -160,7 +160,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -181,7 +181,7 @@ const tshirt = () => {
                   <img
                     alt="ecommerce"
                     className="h-[30vh] md:h-[36vh] block m-auto"
-                    src="https://m.media-amazon.com/images/I/71t4zbKPw3L._AC_UL1500_.jpg"
+                    src="https://m.media-amazon.com/images/I/61o+FvlZhFL._SX425_.jpg"
                   />
                 </a>
                 <div className="mt-4 text-center">
@@ -203,4 +203,4 @@ const tshirt = () => {
   );
 };
 
-export default tshirt;
+export default stickers;
