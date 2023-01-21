@@ -10,7 +10,8 @@ import {
 import { ImCross } from "react-icons/im";
 import { BsFillBagCheckFill } from "react-icons/bs";
 
-const Navbar = () => {
+const Navbar = ({ cart, addtoCart, removeFromCart, clearCart, subTotal }) => {
+  //   console.log(cart, addtoCart, removeFromCart, clearCart, subTotal);
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -73,49 +74,57 @@ const Navbar = () => {
           <ImCross />{" "}
         </span>
         <ol className="list-decimal font-semibold">
-          <li>
-            <div className="item flex">
-              <div className="w-2/3 font-semibold my-5">
-                Tshirt-wear the code
-              </div>
-              <div className="flex items-center justify-center w-1/3 font-semibold text-lg">
-                <AiOutlineMinusCircle className="cursor-pointer text-red-900" />
-                <span className="mx-2 text">1</span>
-                <AiOutlinePlusCircle className="cursor-pointer text-green-700" />
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item flex">
-              <div className="w-2/3 font-semibold my-5">
-                Tshirt-wear the code
-              </div>
-              <div className="flex items-center justify-center w-1/3 font-semibold text-lg">
-                <AiOutlineMinusCircle className="cursor-pointer text-red-900" />
-                <span className="mx-2 text">1</span>
-                <AiOutlinePlusCircle className="cursor-pointer text-green-700" />
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item flex">
-              <div className="w-2/3 font-semibold my-5">
-                Tshirt-wear the code
-              </div>
-              <div className="flex items-center justify-center w-1/3 font-semibold text-lg">
-                <AiOutlineMinusCircle className="cursor-pointer text-red-900" />
-                <span className="mx-2 text">1</span>
-                <AiOutlinePlusCircle className="cursor-pointer text-green-700" />
-              </div>
-            </div>
-          </li>
+          {Object.keys(cart).length === 0 && (
+            <div className="my-4 font-semibold ">No items in the Cart.</div>
+          )}
+          {Object.keys(cart).map((k) => {
+            return (
+              <li key={k}>
+                <div className="item flex">
+                  <div className="w-2/3 font-semibold my-5">{cart[k].name}</div>
+                  <div className="flex items-center justify-center w-1/3 font-semibold text-lg">
+                    <AiOutlineMinusCircle
+                      className="cursor-pointer text-red-900"
+                      onClick={() => {
+                        removeFromCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].name,
+                          cart[k].size,
+                          cart[k].varient
+                        );
+                      }}
+                    />
+                    <span className="mx-2 text">{cart[k].qty}</span>
+                    <AiOutlinePlusCircle
+                      onClick={() => {
+                        addtoCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].name,
+                          cart[k].size,
+                          cart[k].varient
+                        );
+                      }}
+                      className="cursor-pointer text-green-700"
+                    />
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ol>
         <div className="flex">
           <button className="flex   text-white border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-sm bg-pink-300 mr-2">
             <BsFillBagCheckFill className="m-1" />
             Checkout
           </button>
-          <button className="flex   text-white border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-sm bg-pink-300 mr-2">
+          <button
+            className="flex   text-white border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-sm bg-pink-300 mr-2"
+            onClick={clearCart}
+          >
             {/* <BsFillBagCheckFill className="m-1" /> */}
             Clearcart
           </button>
