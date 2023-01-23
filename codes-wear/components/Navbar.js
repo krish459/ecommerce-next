@@ -23,7 +23,7 @@ const Navbar = ({ cart, addtoCart, removeFromCart, clearCart, subTotal }) => {
   };
   const ref = useRef();
   return (
-    <div className="flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md">
+    <div className="flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md sticky top-0 bg-white z-10">
       <div className="logo mx-5 my-2">
         <Link href={"/"} legacyBehavior>
           <a>
@@ -63,7 +63,11 @@ const Navbar = ({ cart, addtoCart, removeFromCart, clearCart, subTotal }) => {
       </div>
       <div
         ref={ref}
-        className=" w-72 h-full sidecart absolute top-0 right-0 bg-pink-100 px-8 py-10 transition-transform translate-x-full transform z-1"
+        className={`w-72 h-100vh sidecart absolute top-0 right-0 bg-pink-100 px-8 py-10 transition-transform ${
+          Object.keys(cart).length === 0
+            ? "translate - x - 0"
+            : "translate - x - full"
+        } transform `}
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
         <span
@@ -116,11 +120,14 @@ const Navbar = ({ cart, addtoCart, removeFromCart, clearCart, subTotal }) => {
             );
           })}
         </ol>
+        <span className="total font-bold">SubTotal: ₹{subTotal}</span>
         <div className="flex">
-          <button className="flex   text-white border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-sm bg-pink-300 mr-2">
-            <BsFillBagCheckFill className="m-1" />
-            Checkout
-          </button>
+          <Link href={"/checkout"}>
+            <button className="flex   text-white border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-sm bg-pink-300 mr-2">
+              <BsFillBagCheckFill className="m-1" />
+              Checkout
+            </button>
+          </Link>
           <button
             className="flex   text-white border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-sm bg-pink-300 mr-2"
             onClick={clearCart}

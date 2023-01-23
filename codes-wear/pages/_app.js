@@ -7,10 +7,11 @@ export default function App({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   useEffect(() => {
-    console.log("het");
+    // console.log("het");
     try {
       if (localStorage.getItem("cart")) {
         setCart(JSON.parse(localStorage.getItem("cart")));
+        saveCart(JSON.parse(localStorage.getItem("cart")));
       }
     } catch (error) {
       console.error(error);
@@ -20,10 +21,11 @@ export default function App({ Component, pageProps }) {
 
   const saveCart = (myCart) => {
     localStorage.setItem("cart", JSON.stringify(myCart));
+    // let myCart = cart;
     let subt = 0;
     let keys = Object.keys(myCart);
     for (let i = 0; i < keys.length; i++) {
-      subt += myCart[keys[i].price * myCart[keys[i].qty]];
+      subt += myCart[keys[i]].price * myCart[keys[i]].qty;
     }
     setSubTotal(subt);
   };
@@ -57,6 +59,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Navbar
+        key={subTotal}
         cart={cart}
         addtoCart={addtoCart}
         removeFromCart={removeFromCart}

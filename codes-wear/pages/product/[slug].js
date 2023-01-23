@@ -186,7 +186,7 @@ const Slug = ({ addtoCart }) => {
                     addtoCart(
                       slug,
                       1,
-                      499,
+                      500,
                       "Wear the code(XL,Red)",
                       "XL",
                       "Red"
