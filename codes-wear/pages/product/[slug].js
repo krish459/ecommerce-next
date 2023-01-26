@@ -1,3 +1,4 @@
+import Product from "@/models/Product";
 import Router, { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -240,5 +241,17 @@ const Slug = ({ addtoCart }) => {
     </div>
   );
 };
+
+// export async function getServerSideProps() {
+//   if (!mongoose.connections[0].readyState) {
+//     await mongoose.connect(process.env.MONGO_URI);
+//   }
+//   let products = await Product.find({ slug: context.query.slug });
+//   let variants = await Product.find({ title: products.title });
+
+//   return {
+//     props: { products: JSON.parse(JSON.stringify(tshirts)) },
+//   };
+// }
 
 export default Slug;

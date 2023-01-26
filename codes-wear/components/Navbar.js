@@ -65,9 +65,7 @@ const Navbar = ({ cart, addtoCart, removeFromCart, clearCart, subTotal }) => {
       <div
         ref={ref}
         className={`w-72 h-100vh sidecart absolute top-0 right-0 bg-pink-100 px-8 py-10 transition-transform ${
-          Object.keys(cart).length === 0
-            ? "translate - x - 0"
-            : "translate - x - full"
+          Object.keys(cart).length === 0 ? "translate-x-full" : "translate-x-0"
         } transform `}
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
